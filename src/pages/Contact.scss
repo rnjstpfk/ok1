@@ -1,0 +1,203 @@
+// src/pages/Contact.scss
+$olive: #7a8350;
+$ink: #222;
+$beige: #eee1cf;
+$line: rgba(0, 0, 0, 0.15);
+
+/* ===== Global full-bleed olive background ===== */
+html, body, #root {
+  background: #7a8350; /* $olive */
+  min-height: 100%;
+}
+
+
+$olive: #7a8350;
+$ink: #222;
+$beige: #eee1cf;
+$line: rgba(0, 0, 0, 0.15);
+
+.contact-page {
+  /* 페이지 자체가 화면 전체 폭을 가지도록 */
+  width: 100%;
+  background: $olive;
+  color: $ink;
+  min-height: 100vh;
+  height: auto;
+
+  a { color: #112a46; text-decoration: underline; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 48px 0 40px; }
+
+  .hero-inner {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* 데스크탑 2열 */
+    gap: clamp(24px, 4vw, 48px);
+  }
+
+  .left { position: relative; }
+
+  .headline {
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin: 8px 0 20px;
+  }
+
+  .info {
+    max-width: 420px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    p + p { margin-top: 14px; }
+  }
+
+  /* 작은 사진 + 원형 텍스트 */
+  .decor {
+    position: relative;
+    margin-top: 26px;
+    width: fit-content;
+    margin-inline: auto;  /* 기본 가운데 고정 */
+
+    .small-photo {
+      width: 280px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    .circle-text {
+      position: absolute;
+      left: 0; top: 0;
+      transform: translate(-35%, -35%); /* 모서리 밖으로 살짝 */
+      width: 160px; height: 160px;
+      fill: $ink;
+      font: 700 12px/1 "Arial", system-ui;
+      letter-spacing: 2px;
+      animation: spin 14s linear infinite;
+      pointer-events: none;
+      text { text-transform: uppercase; }
+    }
+  }
+
+  .right {
+    display: grid;
+    align-content: start;
+    justify-items: end;
+
+    .hero-photo {
+      width: min(420px, 100%);
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+      object-fit: cover;
+    }
+  }
+
+  @keyframes spin { to { transform: translate(-35%, -35%) rotate(360deg); } }
+
+  /* ===== Form ===== */
+  .form-section {
+    width: min(900px, 92vw);
+    margin: 32px auto 80px;
+
+    h2 {
+      text-align: center;
+      font-size: clamp(22px, 3.4vw, 30px);
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+      font-weight: 800;
+    }
+
+    .contact-form {
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+
+        input, textarea {
+          width: 100%;
+          border: 1px solid $line;
+          background: $beige;
+          padding: 14px 16px;
+          border-radius: 3px;
+          font-size: 15px;
+          outline: none;
+          &::placeholder { color: #666; }
+        }
+
+        textarea { grid-column: 1 / -1; }
+      }
+
+      .submit-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+
+        button {
+          min-width: 140px;
+          padding: 12px 22px;
+          border-radius: 4px;
+          border: 1px solid $ink;
+          background: #3c3c3c;
+          color: #fff;
+          font-weight: 700;
+          cursor: pointer;
+          transition: transform .06s ease, opacity .2s ease;
+          &:hover { opacity: .9; }
+          &:active { transform: translateY(1px); }
+        }
+      }
+    }
+  }
+
+  /* ===== Breakpoints ===== */
+
+  /* 1200↓: 2열 균등 + 간격 축소 */
+  @media (max-width: 1200px) {
+    .hero-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  /* 980↓: 1열 + 전체 가운데 정렬 (텍스트/사진/데코) */
+  @media (max-width: 980px) {
+    .hero-inner { grid-template-columns: 1fr; place-items: center; text-align: center; }
+    .left { display: flex; flex-direction: column; align-items: center; }
+    .info { margin: 0 auto; }
+
+    .decor {
+      left: auto; right: auto; bottom: auto; /* 좌표 초기화 */
+      margin-top: 20px;
+      margin-inline: auto;                   /* 확실히 가운데 */
+      margin-right: 90px;
+      .small-photo { width: min(340px, 80vw); }
+      .circle-text { width: 130px; height: 130px; font: 700 11px/1 "Arial", system-ui; }
+    }
+
+    .right { justify-items: center; margin-top: 24px; }
+    .right .hero-photo { width: min(520px, 86vw); }
+    .form-section { margin: 28px auto 64px; }
+  }
+
+  /* 768↓: 타이포 조정 */
+  @media (max-width: 768px) {
+    .headline { font-size: clamp(36px, 8vw, 56px); }
+    .info { font-size: 15px; }
+  }
+
+  /* 480↓: 더 타이트하게 */
+  @media (max-width: 480px) {
+    .headline { font-size: clamp(28px, 9vw, 44px); }
+    .info { font-size: 14px; }
+    .form-section { margin: 20px auto 50px; }
+  }
+
+  /* 데스크탑에서만 데코를 오른쪽으로 오프셋하고 싶다면(선택) */
+  @media (min-width: 981px) {
+    /* 필요 없으면 이 블록 삭제 */
+    .decor { left: 450px; bottom: 40px; }
+  }
+}

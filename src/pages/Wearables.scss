@@ -1,0 +1,314 @@
+@import "../styles/variables";
+
+/* 페이지 기본 */
+.wearables-page {
+    background: $cream;
+    /* 사이트와 톤 맞춤 */
+    color: $text;
+    min-height: 100vh;
+}
+
+/* 상단 얇은 바 - 화면 전체 폭 */
+.page-banner {
+    width: 100%;
+    background: #2f2f2f;
+    color: #fff;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: .6px;
+    font-size: 12px;
+    padding: 6px 8px;
+}
+
+/* 컨테이너 */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 clamp(18px, 3vw, 24px);
+}
+
+/* =======================
+   HERO
+   ======================= */
+.hero {
+    padding-block: clamp(28px, 5vw, 64px);
+
+    .title {
+        margin: 0 0 14px;
+        font-weight: 900;
+        line-height: .9;
+        color: #e26342;
+        /* 코랄 톤 */
+        font-size: clamp(50px, 12vw, 148px);
+        /* 레퍼런스처럼 크게 */
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: center;
+
+        @media (max-width: 980px) {
+            text-align: center;
+        }
+    }
+
+    .subtitle {
+        margin: 0 0 clamp(22px, 4vw, 36px);
+        opacity: .85;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #e26342;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 좌/우 균등 분할 */
+        align-items: center;
+        gap: clamp(24px, 5vw, 60px);
+
+        @media (max-width: 980px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+
+    .hero-image {
+        margin: 0;
+        position: relative;
+        left: 80px;
+
+        img {
+            width: 80%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+        }
+    }
+
+    .hero-info {
+        display: grid;
+        align-content: start;
+        justify-items: start;
+        gap: 16px;
+        padding-top: 8px;
+
+        @media (max-width: 980px) {
+            justify-items: center;
+            text-align: center;
+        }
+
+        .product-name {
+            margin: 0 0 6px;
+            line-height: 1.1;
+            font-weight: 900;
+            color: #121212;
+            text-transform: uppercase;
+            text-align: center;
+            /* 제목도 중앙 정렬 */
+            margin-left: 110px;
+
+            @media (max-width: 980px) {
+                margin-left: 0px;
+            }
+
+            span {
+                display: block;
+                font-size: clamp(28px, 6.5vw, 52px);
+            }
+        }
+
+        .stock {
+            display: block;
+            margin: 4px auto 0;
+            /* 위/아래 간격 + 가운데 정렬 */
+            font-weight: 800;
+            font-size: 14px;
+            color: #6c2bd9;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: block;
+            /* 줄 전체 차지 */
+            margin: 12px auto 0;
+            /* 가운데 정렬 */
+            background: #e26342;
+            color: #fff;
+            border: 0;
+            border-radius: 999px;
+            /* 알약 버튼 */
+            padding: 12px 28px;
+            font-weight: 800;
+            letter-spacing: .3px;
+            cursor: not-allowed;
+            opacity: .95;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .06);
+            text-align: center;
+            /* 텍스트도 중앙 */
+            cursor: pointer;
+        }
+
+    }
+}
+
+/* =======================
+   중간 BAND (배경 분리)
+   ======================= */
+.band {
+    background: #e7dbcf;
+    /* 크림보다 진한 톤으로 구분 */
+    margin-top: clamp(28px, 5vw, 56px);
+    padding: clamp(28px, 6vw, 64px) 0;
+}
+
+.collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 좌/우 균등 */
+    align-items: center;
+    gap: clamp(24px, 5vw, 60px);
+
+    @media (max-width: 980px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* 좌: 3장 카드 콜라주 */
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(14px, 3vw, 22px);
+        position: relative;
+        top: 103px;
+        left: 110px;
+
+        @media (max-width: 980px) {
+            display: none;
+        }
+
+        img {
+            display: block;
+            border-radius: 14px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+        }
+
+        /* 왼쪽 카드 */
+        img:nth-child(1) {
+            width: 58%;
+            /* 가장 작게 */
+            transform: rotate(-8deg);
+        }
+
+        /* 가운데 카드 */
+        img:nth-child(2) {
+            width: 55%;
+            /* 가장 크게 */
+            border-radius: 18px;
+            transform: rotate(0deg);
+            z-index: 2;
+            /* 위로 */
+        }
+
+        /* 오른쪽 카드 */
+        img:nth-child(3) {
+            width: 26%;
+            /* 중간 크기 */
+            transform: rotate(8deg);
+        }
+    }
+
+
+    /* 우: 팔로우 + 위/아래 칩 이미지 */
+    .side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        position: relative;
+        top: 100px;
+        left: 0;
+
+        @media (max-width: 980px) {
+            top: 30px;
+        }
+
+        .chip {
+            width: min(110px, 50%);
+            border-radius: 16px;
+
+            /* box-shadow: 0 6px 18px rgba(0,0,0,.06); */
+            &.top {
+                transform: rotate(9deg);
+            }
+
+            &.bottom {
+                transform: rotate(-9deg);
+                width: min(150px, 50%);
+            }
+        }
+
+        .follow {
+            display: grid;
+            justify-items: center;
+            gap: 8px;
+            text-align: center;
+
+            .eye {
+                font-size: 32px;
+            }
+
+            p {
+                margin: 0;
+                font-weight: 800;
+                line-height: 1.4;
+            }
+
+            .hash {
+                color: #e26342;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+/* =======================
+   WORD ON THE STREET
+   ======================= */
+.street {
+    padding-block: clamp(36px, 7vw, 84px);
+    text-align: center;
+    background: #e7dbcf;
+
+    .street-title {
+        margin: 0 0 clamp(22px, 3.5vw, 38px);
+        line-height: .9;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+
+        span {
+            display: block;
+            font-size: clamp(44px, 10vw, 112px);
+            color: #222;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+        }
+    }
+
+    .street-copy {
+        p {
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .hash {
+            color: #e26342;
+        }
+    }
+}

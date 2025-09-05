@@ -1,0 +1,26 @@
+@import "../styles/variables";
+.certificate-page {
+  text-align: center;
+  padding: 40px;
+  background: $cream;
+/*   height: 87vw; */
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .certificate-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+
+    img {
+      width: 90%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@import "../styles/variables";
+
+.eatables-page {
+  background: $cream;
+  color: $text;
+  min-height: 90vh;
+}
+
+/* 상단 얇은 바 – 화면 전체 폭 */
+.page-banner {
+  width: 100%;
+  background: #2f2f2f;
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .6px;
+  font-size: 12px;
+  padding: 6px 8px;
+  margin-bottom: 160px;
+  @media (max-width: 980px) {
+    margin-bottom: 50px;
+  }
+}
+
+/* 컨테이너 */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 3vw, 24px);
+}
+
+/* 제품 레이아웃 */
+.product {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(20px, 4vw, 40px);
+  padding: clamp(22px, 4vw, 36px) 0;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.product-info {
+  display: grid;
+  align-content: start;
+  gap: clamp(14px, 2.6vw, 20px);
+}
+
+.title-wrap .title {
+  margin: 0 0 6px;
+  line-height: .9;
+  font-weight: 900;
+  color: #121212;
+
+  span {
+    display: block;
+    font-size: clamp(28px, 6vw, 44px);
+  }
+}
+
+.price {
+  font-size: clamp(20px, 3.4vw, 28px);
+  font-weight: 900;
+}
+
+.btn-disabled {
+  width: 100%;
+  background: #cfcfcf;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-weight: 800;
+  cursor: not-allowed;
+}
+
+.ingredients {
+  border-top: 1px solid rgba(0,0,0,.12);
+  padding-top: 10px;
+
+  summary {
+    list-style: none;
+    font-weight: 700;
+    margin-bottom: 6px;
+    cursor: default;
+  }
+  summary::-webkit-details-marker { display: none; }
+}
+
+.share {
+  display: flex;
+  gap: 14px;
+  color: #2c2c2c;
+
+  a { color: inherit; }
+  a:hover { opacity: .8; }
+}
+
+/* 설명 */
+.desc {
+  grid-column: 1 / -1; /* 항상 맨 아래, 전체 폭 차지 */
+  margin-top: 20px;
+  line-height: 1.7;
+  margin-left: 40px;
+  @media (max-width: 980px) {
+    margin-bottom: 50px;
+    margin-left: 0;
+  }
+
+  p { margin: 0 0 12px; }
+
+  .bold { font-weight: 800; }
+  .note { font-weight: 700; }
+  .faq {
+    color: #6c2bd9;
+    font-weight: 800;
+    text-underline-offset: 3px;
+  }
+}

@@ -1,0 +1,144 @@
+/* ===== Blog Detail Styles ===== */
+.blog-detail {
+  --fg: #111;
+  --muted: #6b7280;
+  --bd: #e5e7eb;
+  --bg: #fafafa;
+
+  max-width: 880px;
+  margin: 24px auto 64px;
+  padding: 0 16px;
+  color: var(--fg);
+  height: 100%;
+
+  .detail-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .back-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--bd);
+      border-radius: 999px;
+      background: white;
+      cursor: pointer;
+    }
+    .back-list {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+  }
+
+  .detail-hero {
+    width: 100%;
+    border-radius: 16px;
+    margin: 8px 0 20px;
+    display: block;
+  }
+
+  .detail-title {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+
+  .detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+
+    .dot { color: #aaa; }
+    .like-pill {
+      margin-left: auto;
+      border: 1px solid var(--bd);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: white;
+      cursor: pointer;
+    }
+    .like-pill.on {
+      background: #111;
+      color: white;
+      border-color: #111;
+    }
+  }
+
+  .detail-content {
+    background: white;
+    border: 1px solid var(--bd);
+    border-radius: 16px;
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-bottom: 28px;
+
+    h2, h3 { margin: 1.2em 0 .5em; }
+    p { margin: .6em 0; }
+    img { max-width: 100%; border-radius: 12px; }
+  }
+
+  .detail-comments {
+    h3 { margin-bottom: 12px; }
+
+    .comment-form {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+
+      textarea {
+        min-height: 100px;
+        padding: 12px;
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        resize: vertical;
+        background: white;
+      }
+      .btn-primary {
+        justify-self: start;
+        padding: 8px 14px;
+        border-radius: 10px;
+        background: #111;
+        color: white;
+        border: 1px solid #111;
+        cursor: pointer;
+      }
+    }
+
+    .comment-list {
+      display: grid;
+      gap: 12px;
+
+      .comment-item {
+        background: var(--bg);
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        padding: 12px;
+
+        .comment-head {
+          display: flex;
+          gap: 10px;
+          align-items: baseline;
+          margin-bottom: 4px;
+
+          strong { font-weight: 600; }
+          .time { color: var(--muted); font-size: 12px; }
+        }
+        .comment-body { margin: 6px 0 10px; }
+        .comment-delete {
+          border: 1px solid var(--bd);
+          padding: 4px 10px;
+          border-radius: 8px;
+          background: white;
+          cursor: pointer;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
