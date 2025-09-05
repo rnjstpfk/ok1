@@ -9,7 +9,7 @@ import coffeeStar from "../assets/Coffestar.avif";
 
 import costImg from "../assets/Tansparent_Price_gummy_web.avif";
 
-import eatablesBg from "../assets/OK.png";     // 🟠 배경 이미지
+import eatablesBg from "../assets/ok.png";     // 🟠 배경 이미지
 import eatablesText from "../assets/Eatables.avif";
 
 import whoLeft from "../assets/_MG_1759.avif";   // ← 왼쪽 큰 이미지
