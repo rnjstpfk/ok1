@@ -64,6 +64,7 @@ $nav-accent: #e63946; // 빨강
 }
 .icon-btn svg { display: block; }
 
+
 /* ===== 모바일 헤더 레이아웃(로고 중앙/햄버거 좌/카트 우) ===== */
 @media (max-width: 900px) {
   .header-inner { position: relative; justify-content: center; }
@@ -345,3 +346,19 @@ $nav-accent: #8490c8;
   background:#fff; color:#111; border:1px solid #ddd; cursor:pointer;
 }
 .mm .btn-primary, .mm .btn-ghost { font-size:14px; }
+
+
+
+/* 맨 아래 추가 (모바일에서 헤더 옆 로그인만 숨김) */
+@media (max-width: 900px){
+  .site-header .right .login-link,
+  .site-header .right .auth-controls,
+  .site-header .right .btn-primary,
+  .site-header .right .btn-ghost{
+    display: none !important;
+  }
+  /* 카트/햄버거 아이콘은 계속 보이게 */
+  .site-header .right .icon-btn{
+    display: grid !important;
+  }
+}
